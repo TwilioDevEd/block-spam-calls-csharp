@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockSpamCalls", "BlockSpamCalls\BlockSpamCalls.csproj", "{7A3B8C5D-BE04-45C3-8FF5-F12D365A8D3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockSpamCalls.Test", "BlockSpamCalls.Test\BlockSpamCalls.Test.csproj", "{5B52FCAA-7A2B-4650-9E7B-5714B9ED0EEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7A3B8C5D-BE04-45C3-8FF5-F12D365A8D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A3B8C5D-BE04-45C3-8FF5-F12D365A8D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A3B8C5D-BE04-45C3-8FF5-F12D365A8D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B52FCAA-7A2B-4650-9E7B-5714B9ED0EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B52FCAA-7A2B-4650-9E7B-5714B9ED0EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B52FCAA-7A2B-4650-9E7B-5714B9ED0EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B52FCAA-7A2B-4650-9E7B-5714B9ED0EEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
