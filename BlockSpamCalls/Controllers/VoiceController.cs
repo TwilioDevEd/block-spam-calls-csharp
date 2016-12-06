@@ -10,12 +10,11 @@ namespace BlockSpamCalls.Controllers
     public class VoiceController : TwilioController
     {
         [HttpPost]
-        public TwiMLResult Index(VoiceRequest request)
+        public TwiMLResult Index(VoiceRequest request, string addOns)
         {
             var response = new TwilioResponse();
             var blockCall = false;
 
-            var addOns = HttpContext.Request.Form["AddOns"];
             if (!string.IsNullOrWhiteSpace(addOns))
             {
                 Trace.WriteLine(addOns);
