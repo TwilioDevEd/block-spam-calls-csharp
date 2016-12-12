@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockSpamCalls", "BlockSpam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockSpamCalls.Test", "BlockSpamCalls.Test\BlockSpamCalls.Test.csproj", "{5B52FCAA-7A2B-4650-9E7B-5714B9ED0EEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DownloadMmsImages", "DownloadMmsImages\DownloadMmsImages.csproj", "{02D91D4A-55B0-4C0C-8C72-074369280775}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5B52FCAA-7A2B-4650-9E7B-5714B9ED0EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B52FCAA-7A2B-4650-9E7B-5714B9ED0EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B52FCAA-7A2B-4650-9E7B-5714B9ED0EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02D91D4A-55B0-4C0C-8C72-074369280775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02D91D4A-55B0-4C0C-8C72-074369280775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02D91D4A-55B0-4C0C-8C72-074369280775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02D91D4A-55B0-4C0C-8C72-074369280775}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
