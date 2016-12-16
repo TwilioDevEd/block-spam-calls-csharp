@@ -65,7 +65,7 @@ namespace DownloadMmsImages.Controllers
         {
             // NOTE: This implementation is Windows specific (uses Registry)
             // Platform independent way might be to download a known list of
-            // mime type mappings like: https://raw.githubusercontent.com/apache/httpd/trunk/docs/conf/mime.types
+            // mime type mappings like: http://bit.ly/2gJYKO0
             var key = Registry.ClassesRoot.OpenSubKey(
                 @"MIME\Database\Content Type\" + mimeType, false);
             var ext = key?.GetValue("Extension", null)?.ToString();
