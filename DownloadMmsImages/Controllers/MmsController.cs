@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -19,8 +20,9 @@ namespace DownloadMmsImages.Controllers
         {
             for (var i = 0; i < numMedia; i++)
             {
-                var mediaUrl = Request.Form["MediaUrl" + i];
-                var contentType = Request.Form["MediaContentType" + i];
+                var mediaUrl = Request.Form[$"MediaUrl{i}"];
+                Trace.WriteLine(mediaUrl);
+                var contentType = Request.Form[$"MediaContentType{i}"];
 
                 var filePath = GetMediaFileName(mediaUrl, contentType);
                 await DownloadUrlToFileAsync(mediaUrl, filePath);
