@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.Win32;
-using Twilio.Mvc;
+using Twilio.AspNet.Common;
+using Twilio.AspNet.Mvc;
 using Twilio.TwiML;
-using Twilio.TwiML.Mvc;
 using Task = System.Threading.Tasks.Task;
 
 namespace DownloadMmsImages.Controllers
@@ -28,7 +28,7 @@ namespace DownloadMmsImages.Controllers
                 await DownloadUrlToFileAsync(mediaUrl, filePath);
             }
 
-            var response = new TwilioResponse();
+            var response = new MessagingResponse();
             var body = numMedia == 0 ? "Send us an image!" : 
                 $"Thanks for sending us {numMedia} file(s)!";
             response.Message(body);
