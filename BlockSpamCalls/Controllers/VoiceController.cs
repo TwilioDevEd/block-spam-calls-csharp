@@ -1,9 +1,9 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
-using Twilio.AspNet.Common;
 using Twilio.AspNet.Mvc;
 using Twilio.TwiML;
+using Twilio.TwiML.Mvc;
 
 namespace BlockSpamCalls.Controllers
 {
@@ -12,7 +12,7 @@ namespace BlockSpamCalls.Controllers
         [HttpPost]
         public TwiMLResult Index(VoiceRequest request, string addOns)
         {
-            var response = new VoiceResponse();
+            var response = new TwilioResponse();
             var blockCall = false;
 
             if (!string.IsNullOrWhiteSpace(addOns))
