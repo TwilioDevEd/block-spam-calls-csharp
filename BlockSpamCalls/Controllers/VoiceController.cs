@@ -1,19 +1,23 @@
 using System.Diagnostics;
 using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
+using Twilio.AspNet.Common;
 using Twilio.AspNet.Mvc;
 using Twilio.TwiML;
-using Twilio.TwiML.Mvc;
 
 namespace BlockSpamCalls.Controllers
 {
     public class VoiceController : TwilioController
     {
+        private const int WhitepagesBadReputation = 4;
+        private const int NomoroboSpamScore = 1;
+        private const string SuccessfulStatus = "successful";
+
         [HttpPost]
         public TwiMLResult Index(VoiceRequest request, string addOns)
         {
-            var response = new TwilioResponse();
-            var blockCall = false;
+            var response = new VoiceResponse();
+            var isCallBlocked = false;
 
             if (!string.IsNullOrWhiteSpace(addOns))
             {
@@ -22,13 +26,13 @@ namespace BlockSpamCalls.Controllers
                 var addOnData = JObject.Parse(addOns);
                 if (addOnData["status"]?.ToString() == "successful")
                 {
-                    blockCall = ShouldBeBlockedByNomoRobo(addOnData)
-                             || ShouldBeBlockedByWhitePages(addOnData)
-                             || ShouldBeBlockedByMarchex(addOnData);
+                    isCallBlocked = IsBlockedByNomorobo(addOnData["results"]?["nomorobo_spamscore"])
+                                 || IsBlockedByWhitepages(addOnData["results"]?["whitepages_pro_phone_rep"])
+                                 || IsBlockedByMarchex(addOnData["results"]?["marchex_cleancall"]);
                 }
             }
 
-            if (blockCall)
+            if (isCallBlocked)
             {
                 response.Reject();
             }
@@ -40,39 +44,27 @@ namespace BlockSpamCalls.Controllers
             return TwiML(response);
         }
 
-        private static bool ShouldBeBlockedByNomoRobo(JObject addOnData)
+        private static bool IsBlockedByNomorobo(JToken nomorobo)
         {
-            var nomorobo = addOnData["results"]?["nomorobo_spamscore"];
-            if (nomorobo?["status"]?.ToString() != "successful") return false;
+            if (nomorobo?["status"]?.Value<string>() != SuccessfulStatus) return false;
 
             var score = nomorobo["result"]?["score"]?.Value<int>();
-            return score == 1;
+            return score == NomoroboSpamScore;
         }
 
-        private static bool ShouldBeBlockedByWhitePages(JObject addOnData)
+        private static bool IsBlockedByWhitepages(JToken whitepages)
         {
-            var whitePages = addOnData["results"]?["whitepages_pro_phone_rep"];
-            if (whitePages?["status"]?.ToString() != "successful") return false;
+            if (whitepages?["status"]?.Value<string>() != SuccessfulStatus) return false;
 
-            var results = whitePages["result"]?["results"];
-            if (results == null) return false;
-
-            foreach (var result in results)
-            {
-                var level = result["reputation"]?["level"]?.Value<int>();
-                if (level == 4) return true;
-            }
-
-            return false;
+            var reputationLevel = whitepages["result"]?["reputation_level"].Value<int>();
+            return reputationLevel == WhitepagesBadReputation;
         }
 
-        private static bool ShouldBeBlockedByMarchex(JObject addOnData)
+        private static bool IsBlockedByMarchex(JToken marchex)
         {
-            var cleanCall = addOnData["results"]?["marchex_cleancall"];
-            if (cleanCall?["status"]?.ToString() != "successful") return false;
+            if (marchex?["status"]?.Value<string>() != SuccessfulStatus) return false;
 
-            var recommendation =
-                cleanCall["result"]?["result"]?["recommendation"]?.ToString();
+            var recommendation = marchex["result"]?["result"]?["recommendation"]?.Value<string>();
             return recommendation == "BLOCK";
         }
     }
