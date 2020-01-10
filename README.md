@@ -5,6 +5,8 @@
 # Block Spam Calls. Powered by Twilio - C#/ASP.NET MVC
 [![Build status](https://ci.appveyor.com/api/projects/status/github/TwilioDevEd/block-spam-calls-csharp?svg=true)](https://ci.appveyor.com/project/TwilioDevEd/block-spam-calls-csharp)
 
+> We are currently in the process of updating this sample template. If you are encountering any issues with the sample, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues) and we'll try to help you.
+
 Learn how to use Twilio add-ons to block spam calls.
 
 Follow the beginning of the [Block Spam Calls and RoboCalls guide](https://www.twilio.com/docs/voice/tutorials/block-spam-calls-and-robocalls-python) to learn how to add the spam filtering add-ons.
