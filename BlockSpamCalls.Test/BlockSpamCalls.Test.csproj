@@ -126,7 +126,7 @@
     <None Include="Fixtures\spam_nomorobo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Fixtures\spam_whitepages.json">
+    <None Include="Fixtures\spam_ekata.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Fixtures\successful_marchex.json">
@@ -135,7 +135,7 @@
     <None Include="Fixtures\successful_nomorobo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Fixtures\successful_whitepages.json">
+    <None Include="Fixtures\successful_ekata.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

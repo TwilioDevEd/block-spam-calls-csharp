@@ -9,7 +9,7 @@ namespace BlockSpamCalls.Controllers
 {
     public class VoiceController : TwilioController
     {
-        private const int WhitepagesBadReputation = 4;
+        private const int EkataBadReputation = 4;
         private const int NomoroboSpamScore = 1;
         private const string SuccessfulStatus = "successful";
 
@@ -27,7 +27,7 @@ namespace BlockSpamCalls.Controllers
                 if (addOnData["status"]?.ToString() == "successful")
                 {
                     isCallBlocked = IsBlockedByNomorobo(addOnData["results"]?["nomorobo_spamscore"])
-                                 || IsBlockedByWhitepages(addOnData["results"]?["whitepages_pro_phone_rep"])
+                                 || IsBlockedByEkata(addOnData["results"]?["ekata_pro_phone_rep"])
                                  || IsBlockedByMarchex(addOnData["results"]?["marchex_cleancall"]);
                 }
             }
@@ -52,12 +52,12 @@ namespace BlockSpamCalls.Controllers
             return score == NomoroboSpamScore;
         }
 
-        private static bool IsBlockedByWhitepages(JToken whitepages)
+        private static bool IsBlockedByEkata(JToken ekata)
         {
-            if (whitepages?["status"]?.Value<string>() != SuccessfulStatus) return false;
+            if (ekata?["status"]?.Value<string>() != SuccessfulStatus) return false;
 
-            var reputationLevel = whitepages["result"]?["reputation_level"].Value<int>();
-            return reputationLevel == WhitepagesBadReputation;
+            var reputationLevel = ekata["result"]?["reputation_level"].Value<int>();
+            return reputationLevel == EkataBadReputation;
         }
 
         private static bool IsBlockedByMarchex(JToken marchex)

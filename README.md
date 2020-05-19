@@ -36,6 +36,14 @@ Implementations in other languages:
 - A Twilio account - [sign up](https://www.twilio.com/try-twilio)
 - [ngrok](https://ngrok.com)
 
+### Create a TwiML App
+
+This project is configured to use a **TwiML App**, which allows us to easily set the voice URLs for all Twilio phone numbers we purchase in this app.
+
+To create a new TwiML app click [here](https://www.twilio.com/console/voice/twiml/apps).
+
+![](images/create-twiml-app.png)
+
 ### Install Add-ons
 
 The following guide will help you to [install Add-ons](https://www.twilio.com/docs/add-ons/install). You can access the Add-ons in the Twilio console [here](https://www.twilio.com/console/add-ons). The Spam Filtering Add-ons that are used on this application are:
@@ -75,6 +83,10 @@ Or, use [ngrok Extensions](https://marketplace.visualstudio.com/items?itemName=D
 ```shell
 http://<your-ngrok-subdomain>.ngrok.io/voice
 ```
+
+Finally, click on `Call` to test your application. See [Create a TwiML App](#create-a-twiml-app) to set the Voice URL.
+
+  ![](images/create-twiml-call-button.png)
 
 That's it!
 
