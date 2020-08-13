@@ -54,18 +54,18 @@ namespace BlockSpamCalls.Test
         }
 
         [TestMethod]
-        public void TestSuccessfulWithWhitePages()
+        public void TestSuccessfulWithEkata()
         {
-            var addOns = File.ReadAllText("successful_whitepages.json");
+            var addOns = File.ReadAllText("successful_ekata.json");
             var controller = new VoiceController();
             var result = controller.Index(new VoiceRequest(), addOns);
             Assert.IsFalse(result.Data.ToString().Contains("<Reject"));
         }
 
         [TestMethod]
-        public void TestBlockedWithWhitePages()
+        public void TestBlockedWithEkata()
         {
-            var addOns = File.ReadAllText("spam_whitepages.json");
+            var addOns = File.ReadAllText("spam_ekata.json");
             var controller = new VoiceController();
             var result = controller.Index(new VoiceRequest(), addOns);
             Assert.IsTrue(result.Data.ToString().Contains("<Reject"));
