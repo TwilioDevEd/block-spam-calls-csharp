@@ -1,0 +1,128 @@
+version: 2
+updates:
+- package-ecosystem: nuget
+  directory: "/DownloadMmsImages"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: Microsoft.IdentityModel.JsonWebTokens
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: System.IdentityModel.Tokens.Jwt
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: Microsoft.IdentityModel.Tokens
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: Microsoft.IdentityModel.Logging
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: Twilio
+    versions:
+    - 5.53.1
+    - 5.54.0
+    - 5.55.0
+    - 5.56.0
+    - 5.57.0
+    - 5.58.0
+- package-ecosystem: nuget
+  directory: "/BlockSpamCalls.Test"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: Microsoft.IdentityModel.Tokens
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: System.IdentityModel.Tokens.Jwt
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: Microsoft.IdentityModel.JsonWebTokens
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: Microsoft.IdentityModel.Logging
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: Twilio
+    versions:
+    - 5.53.1
+    - 5.54.0
+    - 5.55.0
+    - 5.56.0
+    - 5.57.0
+    - 5.58.0
+- package-ecosystem: nuget
+  directory: "/BlockSpamCalls"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: Microsoft.IdentityModel.Tokens
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: Microsoft.IdentityModel.JsonWebTokens
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: Microsoft.IdentityModel.Logging
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: System.IdentityModel.Tokens.Jwt
+    versions:
+    - 6.10.0
+    - 6.10.1
+    - 6.10.2
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: Twilio
+    versions:
+    - 5.53.1
+    - 5.54.0
+    - 5.55.0
+    - 5.56.0
+    - 5.57.0
+    - 5.58.0
